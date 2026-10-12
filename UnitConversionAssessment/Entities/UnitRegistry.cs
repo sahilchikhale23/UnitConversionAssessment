@@ -1,12 +1,12 @@
-﻿using UnitConversionApi.Models;
+﻿using System.Collections.Concurrent;
+using UnitConversionApi.Models;
 
 namespace UnitConversionApi.Data;
 
 public static class UnitRegistry
 {
-    public static readonly IReadOnlyDictionary<string, UnitDefinition> Units =
-        new Dictionary<string, UnitDefinition>(
-            StringComparer.OrdinalIgnoreCase)
+    public static readonly ConcurrentDictionary<string, UnitDefinition> Units =
+        new(StringComparer.OrdinalIgnoreCase)
         {
             // Length: Base unit = Meter
 
